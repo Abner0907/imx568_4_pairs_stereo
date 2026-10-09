@@ -1,0 +1,33 @@
+; One state machine per output. Each frame the CPU pushes <delay, width>
+; (in system-clock cycles) and then sets IRQ flags 0..3 of the PIO block in
+; a single register write, so every SM starts counting on the same cycle.
+; Output idles HIGH; the active pulse is LOW (IMX568 XTRIG: exposure while low).
+.program trigger
+.wrap_target
+    pull block          ; delay before the falling edge
+    mov x, osr
+    pull block          ; low width - 2
+    mov y, osr
+    wait 1 irq 0 rel    ; SM n waits on flag n (cleared on wake)
+delay:
+    jmp x-- delay
+    set pins, 0         ; falling edge = exposure start (+<=0.1 us, DS 16.6.3)
+width:
+    jmp y-- width
+    set pins, 1
+.wrap
+
+% c-sdk {
+static inline void trigger_program_init(PIO pio, uint sm, uint offset, uint pin, bool invert) {
+    pio_sm_config c = trigger_program_get_default_config(offset);
+    sm_config_set_set_pins(&c, pin, 1);
+    sm_config_set_clkdiv(&c, 1.0f);                 /* 1 cycle = 1/clk_sys */
+    pio_gpio_init(pio, pin);
+    if (invert)
+        gpio_set_outover(pin, GPIO_OVERRIDE_INVERT); /* active-high pulse */
+    pio_sm_set_pins_with_mask(pio, sm, 1u << pin, 1u << pin);  /* idle high */
+    pio_sm_set_consecutive_pindirs(pio, sm, pin, 1, true);
+    pio_sm_init(pio, sm, offset, &c);
+    pio_sm_set_enabled(pio, sm, true);
+}
+%}

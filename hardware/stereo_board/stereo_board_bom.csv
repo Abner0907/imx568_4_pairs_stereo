@@ -1,0 +1,31 @@
+group,part,value / note,qty (per board)
+C,0.1u 0201 X5R/X7R 6.3V+,,76
+C,10u 0603 X5R/X7R 6.3V+,,16
+C,1n 0201 X5R/X7R 6.3V+,,6
+C,1u 0402 X5R/X7R 6.3V+,,10
+C,22u 0603 X5R/X7R 6.3V+,,10
+C,4.7u 0402 X5R/X7R 6.3V+,,40
+J1,Hirose FH12-40S-0.5SH(55),FPC to AGX adapter (pinout: fpc_pinout.py),1
+J2,2x5 1.27 mm header,JTAG / SPI programming (Lattice HW-USBN-2B),1
+L,"10uH 0805 >=300 mA, low DCR",VDDLIF filter,2
+L,"10uH 0805 >=300 mA, low DCR",VDDLPLA filter,2
+R,R0402,0R,6
+R,R0402,100k pull-down on EN_* (rails off while FPGA configures),1
+R,R0402,10R,6
+R,R0402,10k,8
+R,R0402,2.2k,1
+R,R0402,22R,2
+T,TP,XVS/XHS/TOUT1/TOUT2/XTRIG2,2
+U,IMX568-AAMJ-C,LGA132,2
+U10,TLV75518P (500 mA),"+3V6 -> +1V8 always-on (FPGA VCCAUX/VCCIO, flash, osc)",1
+U11,LP5912-3.3 (500 mA low-noise),+3V6 -> +3V3_LDO (2 x 45 mA max),1
+U12,"500 mA low-noise LDO, 2.9 V (e.g. LP5912 2.9 V option - VERIFY orderable)",+3V6 -> +2V9_LDO (2 x 125 mA max),1
+U13..U16,"TPS22918 (CT slew <= 25 mV/us, QOD)","rail switches, ON from FPGA",1
+U3,"Lattice LIFCL-40 (CrossLink-NX), caBGA256 (VERIFY package/pinout)",CSI-2 VC aggregation RD (2->1) + fpga/stereo_ctrl.v,1
+U4,"TI LMK1C1102 (1:2 LVCMOS buffer w/ OE), VDD 1.8 V",INCK fan-out,1
+U5,W25Q32JW (1.8 V SPI NOR),FPGA bitstream,1
+U6,PCA9306 (I2C translator / isolator),bus to sensors only when +1V8_SNS is up,1
+U7,"TPS62162 (3-17 V, 1 A buck)",VIN_5V -> +3V6,1
+U8,TLV62569 (2 A buck),"+3V6 -> +1V1_BUCK (2 sensors, <= 0.53 A)",1
+U9,TLV62569 (2 A buck),+3V6 -> +1V0_FPGA (size with Lattice power calculator),1
+Y,"74.25 MHz oscillator, 1.8 V, +-50 ppm (SiT8008-class)",always on (FPGA ref + INCK),1

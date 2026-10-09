@@ -1,0 +1,35 @@
+ref,part,value / note,pin / function,net
+U1,TCA9546A (TSSOP-16),"I2C mux @0x70, VCC = 1V8_CONN",SCL/SDA,I2C_GP3_CLK / I2C_GP3_DAT
+U1,TCA9546A (TSSOP-16),"I2C mux @0x70, VCC = 1V8_CONN",A0..A2,GND
+U1,TCA9546A (TSSOP-16),"I2C mux @0x70, VCC = 1V8_CONN",RESET#,1V8_CONN via 10k
+U1,TCA9546A (TSSOP-16),"I2C mux @0x70, VCC = 1V8_CONN",SC0/SD0,S0_I2C_SCL / S0_I2C_SDA
+U1,TCA9546A (TSSOP-16),"I2C mux @0x70, VCC = 1V8_CONN",SC1/SD1,S1_I2C_SCL / S1_I2C_SDA
+U1,TCA9546A (TSSOP-16),"I2C mux @0x70, VCC = 1V8_CONN",SC2/SD2,S2_I2C_SCL / S2_I2C_SDA
+U1,TCA9546A (TSSOP-16),"I2C mux @0x70, VCC = 1V8_CONN",SC3/SD3,S3_I2C_SCL / S3_I2C_SDA
+RN1..RN4,2.2k pull-ups,per mux channel to 1V8_CONN,x,Sk_I2C_SCL/SDA
+U2,TCA6416A (TSSOP-24),"GPIO expander @0x20, VCCI = VCCP = 1V8_CONN",SCL/SDA,I2C_GP3_CLK / I2C_GP3_DAT
+U2,TCA6416A (TSSOP-24),"GPIO expander @0x20, VCCI = VCCP = 1V8_CONN",ADDR,GND
+U2,TCA6416A (TSSOP-24),"GPIO expander @0x20, VCCI = VCCP = 1V8_CONN",RESET#,CAM1_RST (conn pin 92) + 10k pull-up
+U2,TCA6416A (TSSOP-24),"GPIO expander @0x20, VCCI = VCCP = 1V8_CONN",P00..P03 (out),S0..S3_PWR_EN
+U2,TCA6416A (TSSOP-24),"GPIO expander @0x20, VCCI = VCCP = 1V8_CONN",P04..P07 (out),S0..S3_VIN_EN
+U2,TCA6416A (TSSOP-24),"GPIO expander @0x20, VCCI = VCCP = 1V8_CONN",P10..P13 (in),S0..S3_STATUS
+U2,TCA6416A (TSSOP-24),"GPIO expander @0x20, VCCI = VCCP = 1V8_CONN","P14..P17 (out, OD use)",S0..S3_FPGA_PROGRAMN
+U3,RP2040 + W25Q16JV + 12 MHz XTAL,sync controller (firmware/sync_controller),GP2..GP5,TRIG0..TRIG3 (3V3)
+U3,RP2040 + W25Q16JV + 12 MHz XTAL,sync controller (firmware/sync_controller),GP6,SYNC_OUT (3V3)
+U3,RP2040 + W25Q16JV + 12 MHz XTAL,sync controller (firmware/sync_controller),GP8..GP15,"TOUT0_L/R of S0..S3 (3V3, optional verification)"
+U3,RP2040 + W25Q16JV + 12 MHz XTAL,sync controller (firmware/sync_controller),USB,J6 USB-C -> Xavier USB
+"U4, U5","SN74AXC4T774 (4-bit dual-supply, dir per bit)",3V3 <-> 1V8,A (3V3),TRIG0..3
+"U4, U5","SN74AXC4T774 (4-bit dual-supply, dir per bit)",3V3 <-> 1V8,B (1V8),S0..S3_TRIG
+U6,SN74AXC1T45,SYNC_OUT 3V3 -> 1V8,A,SYNC_OUT
+U6,SN74AXC1T45,SYNC_OUT 3V3 -> 1V8,B,GPIO10 (conn pin 85)
+"U7, U8",SN74AXC4T774,TOUT0 1V8 -> 3V3 (optional),B,Sk_TOUT0_L/R
+"U7, U8",SN74AXC4T774,TOUT0 1V8 -> 3V3 (optional),A,RP2040 GP8..15
+U9,5 V / 4 A buck (e.g. TPS56637),12 V in -> +5V_CAM,VIN,+12V_IN
+U9,5 V / 4 A buck (e.g. TPS56637),12 V in -> +5V_CAM,VOUT,+5V_CAM
+U10..U13,"current-limited 5 V switch, 1.8 V-compatible EN (e.g. TPS2553 family - VERIFY VIH)",ILIM ~0.8 A per stereo board,IN,+5V_CAM
+U10..U13,"current-limited 5 V switch, 1.8 V-compatible EN (e.g. TPS2553 family - VERIFY VIH)",ILIM ~0.8 A per stereo board,OUT,Sk_VIN_5V
+U10..U13,"current-limited 5 V switch, 1.8 V-compatible EN (e.g. TPS2553 family - VERIFY VIH)",ILIM ~0.8 A per stereo board,EN,Sk_VIN_EN
+J1,Samtec QTH-060-03-L-D-A,to AGX devkit camera connector (bottom side),see,xavier_connector_map.csv
+J2..J5,Hirose FH12-40S-0.5SH(55),FPC to stereo board 0..3,see,fpc_k_pinout.csv
+J7,DC barrel / 2-pin terminal,"+12V_IN, >= 2 A, TVS + reverse-polarity FET",1,+12V_IN
+J7,DC barrel / 2-pin terminal,"+12V_IN, >= 2 A, TVS + reverse-polarity FET",2,GND

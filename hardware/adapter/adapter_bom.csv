@@ -1,0 +1,13 @@
+ref,part,value / note
+U1,TCA9546A (TSSOP-16),"I2C mux @0x70, VCC = 1V8_CONN"
+RN1..RN4,2.2k pull-ups,per mux channel to 1V8_CONN
+U2,TCA6416A (TSSOP-24),"GPIO expander @0x20, VCCI = VCCP = 1V8_CONN"
+U3,RP2040 + W25Q16JV + 12 MHz XTAL,sync controller (firmware/sync_controller)
+"U4, U5","SN74AXC4T774 (4-bit dual-supply, dir per bit)",3V3 <-> 1V8
+U6,SN74AXC1T45,SYNC_OUT 3V3 -> 1V8
+"U7, U8",SN74AXC4T774,TOUT0 1V8 -> 3V3 (optional)
+U9,5 V / 4 A buck (e.g. TPS56637),12 V in -> +5V_CAM
+U10..U13,"current-limited 5 V switch, 1.8 V-compatible EN (e.g. TPS2553 family - VERIFY VIH)",ILIM ~0.8 A per stereo board
+J1,Samtec QTH-060-03-L-D-A,to AGX devkit camera connector (bottom side)
+J2..J5,Hirose FH12-40S-0.5SH(55),FPC to stereo board 0..3
+J7,DC barrel / 2-pin terminal,"+12V_IN, >= 2 A, TVS + reverse-polarity FET"

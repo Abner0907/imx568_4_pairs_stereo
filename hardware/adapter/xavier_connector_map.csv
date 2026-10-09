@@ -1,0 +1,122 @@
+qth_pin,xavier_signal,adapter_destination
+1,CSI0_D0_P,"J2 (stereo board 0, front) pin 2"
+2,CSI1_D0_P,"J2 (stereo board 0, front) pin 11"
+3,CSI0_D0_N,"J2 (stereo board 0, front) pin 3"
+4,CSI1_D0_N,"J2 (stereo board 0, front) pin 12"
+5,GND,GND
+6,GND,GND
+7,CSI0_CLK_P,"J2 (stereo board 0, front) pin 8"
+8,CSI1_CLK_P,leave open (unused)
+9,CSI0_CLK_N,"J2 (stereo board 0, front) pin 9"
+10,CSI1_CLK_N,leave open (unused)
+11,GND,GND
+12,GND,GND
+13,CSI0_D1_P,"J2 (stereo board 0, front) pin 5"
+14,CSI1_D1_P,"J2 (stereo board 0, front) pin 14"
+15,CSI0_D1_N,"J2 (stereo board 0, front) pin 6"
+16,CSI1_D1_N,"J2 (stereo board 0, front) pin 15"
+17,GND,GND
+18,GND,GND
+19,CSI2_D0_P,"J3 (stereo board 1, rear) pin 2"
+20,CSI3_D0_P,"J3 (stereo board 1, rear) pin 11"
+21,CSI2_D0_N,"J3 (stereo board 1, rear) pin 3"
+22,CSI3_D0_N,"J3 (stereo board 1, rear) pin 12"
+23,GND,GND
+24,GND,GND
+25,CSI2_CLK_P,"J3 (stereo board 1, rear) pin 8"
+26,CSI3_CLK_P,leave open (unused)
+27,CSI2_CLK_N,"J3 (stereo board 1, rear) pin 9"
+28,CSI3_CLK_N,leave open (unused)
+29,GND,GND
+30,GND,GND
+31,CSI2_D1_P,"J3 (stereo board 1, rear) pin 5"
+32,CSI3_D1_P,"J3 (stereo board 1, rear) pin 14"
+33,CSI2_D1_N,"J3 (stereo board 1, rear) pin 6"
+34,CSI3_D1_N,"J3 (stereo board 1, rear) pin 15"
+35,GND,GND
+36,GND,GND
+37,CSI4_D0_P,"J4 (stereo board 2, left) pin 2"
+38,CSI6_D0_P,"J5 (stereo board 3, right) pin 2"
+39,CSI4_D0_N,"J4 (stereo board 2, left) pin 3"
+40,CSI6_D0_N,"J5 (stereo board 3, right) pin 3"
+41,GND,GND
+42,GND,GND
+43,CSI4_CLK_P,"J4 (stereo board 2, left) pin 8"
+44,CSI6_CLK_P,"J5 (stereo board 3, right) pin 8"
+45,CSI4_CLK_N,"J4 (stereo board 2, left) pin 9"
+46,CSI6_CLK_N,"J5 (stereo board 3, right) pin 9"
+47,GND,GND
+48,GND,GND
+49,CSI4_D1_P,"J4 (stereo board 2, left) pin 5"
+50,CSI6_D1_P,"J5 (stereo board 3, right) pin 5"
+51,CSI4_D1_N,"J4 (stereo board 2, left) pin 6"
+52,CSI6_D1_N,"J5 (stereo board 3, right) pin 6"
+53,GND,GND
+54,GND,GND
+55,NC,leave open
+56,NC,leave open
+57,NC,leave open
+58,NC,leave open
+59,CSI5_D0_P,"J4 (stereo board 2, left) pin 11"
+60,CSI7_D0_P,"J5 (stereo board 3, right) pin 11"
+61,CSI5_D0_N,"J4 (stereo board 2, left) pin 12"
+62,CSI7_D0_N,"J5 (stereo board 3, right) pin 12"
+63,GND,GND
+64,GND,GND
+65,CSI5_CLK_P,leave open (unused)
+66,CSI7_CLK_P,leave open (unused)
+67,CSI5_CLK_N,leave open (unused)
+68,CSI7_CLK_N,leave open (unused)
+69,GND,GND
+70,GND,GND
+71,CSI5_D1_P,"J4 (stereo board 2, left) pin 14"
+72,CSI7_D1_P,"J5 (stereo board 3, right) pin 14"
+73,CSI5_D1_N,"J4 (stereo board 2, left) pin 15"
+74,CSI7_D1_N,"J5 (stereo board 3, right) pin 15"
+75,I2C_GP3_CLK,U1 TCA9546A + U2 TCA6416A SCL
+76,NC,leave open
+77,I2C_GP3_DAT,U1 TCA9546A + U2 TCA6416A SDA
+78,NC,leave open
+79,GND,GND
+80,GND,GND
+81,AVDD_CAM_2V8,not used
+82,AVDD_CAM_2V8,not used
+83,AVDD_CAM_2V8,not used
+84,NC,leave open
+85,GPIO10,"U6 B (SYNC_OUT, 1.8 V)"
+86,NC,leave open
+87,NC,leave open
+88,NC,leave open
+89,NC,leave open
+90,NC,leave open
+91,NC,leave open
+92,CAM1_RST,U2 TCA6416A RESET#
+93,NC,leave open
+94,NC,leave open
+95,NC,leave open
+96,NC,leave open
+97,NC,leave open
+98,NC,leave open
+99,GND,GND
+100,GND,GND
+101,NC,leave open
+102,1V8_CONN,"1.8 V logic (mux, expander, shifters B side, pull-ups)"
+103,NC,leave open
+104,NC,leave open
+105,NC,leave open
+106,NC,leave open
+107,NC,leave open
+108,3V3_CONN,"3.3 V logic (RP2040, shifters A side) - camera power comes from J7"
+109,NC,leave open
+110,3V3_CONN,"3.3 V logic (RP2040, shifters A side) - camera power comes from J7"
+111,NC,leave open
+112,NC,leave open
+113,NC,leave open
+114,NC,leave open
+115,GND,GND
+116,GND,GND
+117,NC,leave open
+118,3V3_CONN,"3.3 V logic (RP2040, shifters A side) - camera power comes from J7"
+119,NC,leave open
+120,3V3_CONN,"3.3 V logic (RP2040, shifters A side) - camera power comes from J7"
+MP,GND,GND
